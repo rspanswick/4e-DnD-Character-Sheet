@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>dnd</title>
+        <style type="text/css">
+            .itemCon {display:block; margin:10px 0;}
+            .attributeCon {margin:10px 0;}
+            .attributeCon p, .attributeCon div {display:inline;}
+            #chooseAbility, #chooseShifter, #chooseAnyAbility {position:absolute; top:25%; left:38%; display:none; width:240px; padding:20px; text-align:center; background:#efefef; border:3px solid #999; border-radius:10px;}
+            #chooseAbility input {width:35%;}
+            #abilityChoiceMessage {margin:0 0 10px;}
+            #resetModifyButton, #resetShifterButton {display:none;}
+        </style>
+    </head>
+
+    <body>
+        <div class="itemCon">
+            <input type="text" id="enterName" placeholder="Choose your name" onchange="newName(document.getElementById('enterName').value)" />
+        </div>
+        <div class="itemCon">
+            <select id="raceListTarget" onchange="newRace(this.value);">
+                <option disabled selected value="">Choose your race</option>
+            </select>
+            <input id="resetModifyButton" type="button" value="Change Attribute Modifier" onclick="resetModify();" />
+            <input id="resetShifterButton" type="button" value="Change Shifter Type" onclick="resetShifter();" />
+        </div>
+        <div class="itemCon">
+            <select id="classListTarget" onchange="newClass(this.value);">
+                <option disabled selected value="">Choose your class</option>
+            </select>
+        </div>
+        <div class="itemCon">
+            <select id="genderListTarget" onchange="newGender(this.value);">
+                <option disabled selected value="">Choose your gender</option>
+            </select>
+        </div>
+        <div class="itemCon">
+            <div class="attributeCon">
+                <p>Remaining Points</p>
+                <div id="remainingPoints">22</div>
+            </div>
+            <div class="attributeCon">
+                <p>Strength</p>
+                <div id="strNumber">10</div>
+                <input type="button" value="add" onclick="addPoint('str');" />
+                <input type="button" value="remove" onclick="removePoint('str');" />
+                <div id="strModify"></div>
+            </div>
+            <div class="attributeCon">
+                <p>Constitution</p>
+                <div id="conNumber">10</div>
+                <input type="button" value="add" onclick="addPoint('con');" />
+                <input type="button" value="remove" onclick="removePoint('con');" />
+                <div id="conModify"></div>
+            </div>
+            <div class="attributeCon">
+                <p>Dexterity</p>
+                <div id="dexNumber">10</div>
+                <input type="button" value="add" onclick="addPoint('dex');" />
+                <input type="button" value="remove" onclick="removePoint('dex');" />
+                <div id="dexModify"></div>
+            </div>
+            <div class="attributeCon">
+                <p>Intelligence</p>
+                <div id="intNumber">10</div>
+                <input type="button" value="add" onclick="addPoint('int');" />
+                <input type="button" value="remove" onclick="removePoint('int');" />
+                <div id="intModify"></div>
+            </div>
+            <div class="attributeCon">
+                <p>Wisdom</p>
+                <div id="wisNumber">10</div>
+                <input type="button" value="add" onclick="addPoint('wis');" />
+                <input type="button" value="remove" onclick="removePoint('wis');" />
+                <div id="wisModify"></div>
+            </div>
+            <div class="attributeCon">
+                <p>Charisma</p>
+                <div id="chaNumber">10</div>
+                <input type="button" value="add" onclick="addPoint('cha');" />
+                <input type="button" value="remove" onclick="removePoint('cha');" />
+                <div id="chaModify"></div>
+            </div>
+        </div>
+        <div id="chooseAbility">
+            <p id="abilityChoiceMessage"></p>
+            <input id="abilityChoice1" type="button" value="" onclick="abilityChoice(this.value);" />
+            <input id="abilityChoice2" type="button" value="" onclick="abilityChoice(this.value);" />
+        </div>
+        <div id="chooseShifter">
+            <p id="shifterChoiceMessage"></p>
+            <input id="shifterChoice1" type="button" value="Longtooth" onclick="shifterChoice('Longtooth');" />
+            <input id="shifterChoice2" type="button" value="Razerclaw" onclick="shifterChoice('Razerclaw');" />
+        </div>
+    </body>
+    <script type="text/javascript" src="dnd.js"></script>
+</html>
